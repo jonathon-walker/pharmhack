@@ -44,6 +44,5 @@ C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\bin\Debug\ko\Microsoft.Spatial.r
 C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\bin\Debug\ru\Microsoft.Spatial.resources.dll
 C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\bin\Debug\zh-Hans\Microsoft.Spatial.resources.dll
 C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\bin\Debug\zh-Hant\Microsoft.Spatial.resources.dll
-C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\obj\Debug\Pharmhack.OData.csprojResolveAssemblyReference.cache
 C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\obj\Debug\Pharmhack.OData.dll
 C:\Users\Jonathon\dev\Pharmhack\Pharmhack.OData\obj\Debug\Pharmhack.OData.pdb

@@ -265,7 +265,7 @@
         </member>
         <member name="M:Microsoft.OData.Client.EdmValueUtils.ConvertPrimitiveValueWithoutTypeCode(System.Object,Microsoft.OData.Edm.IEdmPrimitiveTypeReference)">
             <summary>
-            Convert a primitive value which didn't match any of the known values of the <see cref="T:System.TypeCode"/> enumeration.
+            Convert a primitive value which didn't match any of the known values of the TypeCode enumeration.
             </summary>
             <param name="primitiveValue">The value to convert.</param>
             <param name="type">The expected primitive type or null.</param>
@@ -859,17 +859,29 @@
             Whether to generate entity keys as '/'-delimited segments instead of using parenthesis.
             </summary>
         </member>
-        <member name="M:Microsoft.OData.Client.UrlConvention.#ctor(System.Boolean)">
+        <member name="F:Microsoft.OData.Client.UrlConvention.odataSimplified">
+            <summary>
+            Whether to enable OData simplified.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.UrlConvention.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Prevents a default instance of the <see cref="T:Microsoft.OData.Client.UrlConvention"/> class from being created.
             </summary>
             <param name="generateKeyAsSegment">Whether keys should be generated as segments.</param>
+            <param name="odataSimplified">Whether to enable OData simplified.</param>
         </member>
         <member name="M:Microsoft.OData.Client.UrlConvention.CreateWithExplicitValue(System.Boolean)">
             <summary>
             Helper for creating an instance with explicit value. Should only be called from unit tests.
             </summary>
             <param name="generateKeyAsSegment">Whether keys should be generated as segments.</param>
+            <returns>A new UrlConvention instance with the given value.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.UrlConvention.CreateODataSimplifiedConvention">
+            <summary>
+            Helper for creating an odata simplified instance.
+            </summary>
             <returns>A new UrlConvention instance with the given value.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.UrlConvention.AddRequiredHeaders(Microsoft.OData.Client.HeaderCollection)">
@@ -881,6 +893,11 @@
         <member name="P:Microsoft.OData.Client.UrlConvention.GenerateKeyAsSegment">
             <summary>
             Whether to generate entity keys as '/'-delimited segments instead of using parenthesis.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.UrlConvention.ODataSimplified">
+            <summary>
+            Whether to enable OData simplified.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Core.Metadata.EdmLibraryExtensions">
@@ -1018,16 +1035,6 @@
         <member name="F:Microsoft.OData.Core.InternalErrorCodesCommon.EdmLibraryExtensions_Clone_PrimitiveTypeKind">
             <summary>Unreachable codepath in EdmLibraryExtensions.Clone for unexpected primitive type kind.</summary>
         </member>
-        <member name="T:Microsoft.OData.Client.ALinq.UriParser.AllToken">
-            <summary>
-            Lexical token representing the All Query
-            </summary>
-        </member>
-        <member name="T:Microsoft.OData.Client.ALinq.UriParser.LambdaToken">
-            <summary>
-            Lexical token representing the Any/All Query
-            </summary>
-        </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken">
             <summary>
             Base class for all lexical tokens of OData query.
@@ -1049,6 +1056,50 @@
         <member name="P:Microsoft.OData.Client.ALinq.UriParser.QueryToken.Kind">
             <summary>
             The kind of the query token.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.ApplyTransformationToken">
+            <summary>
+            Base class for Applt transformation tokens
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.AggregateToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.GroupByToken.Accept``1(Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor{``0})">
+            <summary>
+            Accept a <see cref="T:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1"/> to walk a tree of <see cref="T:Microsoft.OData.Client.ALinq.UriParser.QueryToken"/>s.
+            </summary>
+            <typeparam name="T">Type that the visitor will return after visiting this token.</typeparam>
+            <param name="visitor">An implementation of the visitor interface.</param>
+            <returns>An object whose type is determined by the type parameter of the visitor.</returns>
+        </member>
+        <member name="P:Microsoft.OData.Client.ALinq.UriParser.GroupByToken.Kind">
+            <summary>
+            The kind of the query token.
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.AllToken">
+            <summary>
+            Lexical token representing the All Query
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Client.ALinq.UriParser.LambdaToken">
+            <summary>
+            Lexical token representing the Any/All Query
             </summary>
         </member>
         <member name="F:Microsoft.OData.Client.ALinq.UriParser.LambdaToken.parent">
@@ -1998,6 +2049,27 @@
             <param name="tokenIn">The FunctionParameterTokenb to bind</param>
             <returns>A FunctionParametertoken bound to this UnaryOperatorToken</returns>
         </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.AggregateToken)">
+            <summary>
+            Visits a AggregateToken
+            </summary>
+            <param name="tokenIn">The AggregateToken to bind</param>
+            <returns>A T node bound to this AggregateToken</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.AggregateExpressionToken)">
+            <summary>
+            Visits a AggregateExpressionToken
+            </summary>
+            <param name="tokenIn">The AggregateExpressionToken to bind</param>
+            <returns>A T node bound to this AggregateExpressionToken</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.ALinq.UriParser.ISyntacticTreeVisitor`1.Visit(Microsoft.OData.Client.ALinq.UriParser.GroupByToken)">
+            <summary>
+            Visits a GroupByToken
+            </summary>
+            <param name="tokenIn">The GroupByToken to bind</param>
+            <returns>A T node bound to this GroupByToken</returns>
+        </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.LiteralToken">
             <summary>
             Lexical token representing a literal value.
@@ -2365,6 +2437,21 @@
         <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.StringLiteral">
             <summary>
             the string literal for search query
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.Aggregate">
+            <summary>
+            $apply aggregate token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.AggregateExpression">
+            <summary>
+            $apply aggregate statement token
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ALinq.UriParser.QueryTokenKind.AggregateGroupBy">
+            <summary>
+            $apply groupby token
             </summary>
         </member>
         <member name="T:Microsoft.OData.Client.ALinq.UriParser.RangeVariableToken">
@@ -2802,6 +2889,135 @@
             <param name="objectInstanceInitialized">True if all properties of the created <paramref name="objectInstance"/> are initialized.
             False if properties of the created instance should be initialized using the default <see cref="T:Microsoft.OData.Edm.EdmToClrConversion.EdmToClrConverter"/> logic.</param>
             <returns>True if the <paramref name="objectInstance"/> is created, else false.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer">
+            <summary>
+            Used to compare key in DataServiceContext.InstanceAnnotations. 
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Client.WeakKeyComparer`1">
+            <summary>
+            Defines methods to support the comparison of WeakKeyReferences for equality.
+            </summary>
+            <typeparam name="T">The type of the object to be compared.</typeparam>
+            <remarks>
+            Compares objects of the given type or WeakKeyReferences to them for equality based on the given comparer. Note that we can only
+            implement <see cref="T:System.Collections.Generic.IEqualityComparer`1"/> for T = object as there is no other common base between T and <see cref="T:Microsoft.OData.Client.WeakKeyReference`1"/>. We need a
+            single comparer to handle both types because we don't want to allocate a new weak reference for every lookup.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakKeyComparer`1.comparer">
+            <summary>
+            Internal comparer used to determine the equal for <typeparamref name="T"/> objects.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakKeyComparer`1.defaultInstance">
+            <summary>
+            The default comparer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakKeyComparer`1.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            Constructor
+            </summary>
+            <param name="comparer">
+            Internal comparer used to determine the equal for <typeparamref name="T"/> objects.
+            </param>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakKeyComparer`1.GetHashCode(System.Object)">
+            <summary>
+            Get the hash code for the specified object.
+            </summary>
+            <param name="obj">The object for which a hash code is to be returned.</param>
+            <returns>
+            A hash code for the specified object.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakKeyComparer`1.Equals(System.Object,System.Object)">
+             <summary>
+             Determines whether the specified objects are equal.
+             </summary>
+             <param name="obj1">The first object to compare.</param>
+             <param name="obj2">The second object to compare.</param>
+             <returns>true if the specified objects are equal; otherwise, false.</returns>
+             <remarks>
+              Note: There are actually 9 cases to handle here.
+            
+              Let Wa = Alive Weak Reference
+              Let Wd = Dead Weak Reference
+              Let S  = Strong Reference
+              
+              x  | y  | Equals(x,y)
+             -------------------------------------------------
+              Wa | Wa | comparer.Equals(x.Target, y.Target) 
+              Wa | Wd | false
+              Wa | S  | comparer.Equals(x.Target, y)
+              Wd | Wa | false
+              Wd | Wd | x == y
+              Wd | S  | false
+              S  | Wa | comparer.Equals(x, y.Target)
+              S  | Wd | false
+              S  | S  | comparer.Equals(x, y)
+             -------------------------------------------------
+             </remarks>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakKeyComparer`1.GetTarget(System.Object,System.Boolean@)">
+            <summary>
+            Gets the target of the input object if it is a <see cref="T:Microsoft.OData.Client.WeakKeyReference`1"/>, else return it self.
+            </summary>
+            <param name="obj">The input object from which to get the target.</param>
+            <param name="isDead">Indicate whether the object is dead if it is a <see cref="T:Microsoft.OData.Client.WeakKeyReference`1"/>.</param>
+            <returns>The target of the input object.</returns>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakKeyComparer`1.Default">
+            <summary>
+            Get the default comparer.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.#ctor">
+            <summary>
+            The constructor to create an InstanceAnnotationDictWeakKeyComparer
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.GetHashCode(System.Object)">
+            <summary>
+            Get the hash code for the specified object.
+            </summary>
+            <param name="obj">The object of which a hash code is to be returned.</param>
+            <returns>
+            A hash code for the specified object.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.CreateKey(System.Object)">
+            <summary>
+            Create a dictionary key for the specified obj.
+            </summary>
+            <param name="obj">The specified object used to create a key</param>
+            <returns>Returns a Tuple&lt;WeakKeyReference&lt;object&gt;, MemberInfo&gt; if the input object is a tuple,
+            or returns a WeakKeyReference&lt;object&gt;</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.RemoveRule(System.Object)">
+            <summary>
+            A rule to determine whether an entry with the key could be removed.
+            </summary>
+            <param name="key">The key of an entry to be checked.</param>
+            <returns>Returns true if the target of a WeakKeyReference&lt;object&gt; in a tuple is dead, else false.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.GetTarget(System.Object,System.Boolean@)">
+            <summary>
+            Gets the target of the input object if it is a <see cref="T:Microsoft.OData.Client.WeakKeyReference`1"/>, 
+            else a new Tuple&lt;object, MemberInfo&gt; if it is a Tuple&lt;WeakKeyReferece&lt;object&gt;, MemberInfo&gt;.
+            </summary>
+            <param name="obj">The input object from which to get the target.</param>
+            <param name="isDead">Indicate whether the object is dead if it is a <see cref="T:Microsoft.OData.Client.WeakKeyReference`1"/>.
+            Or wehther the first item of a tuple is dead.
+            </param>
+            <returns>The target of the input object.</returns>
+        </member>
+        <member name="P:Microsoft.OData.Client.Annotation.InstanceAnnotationDictWeakKeyComparer.Default">
+            <summary>
+            Get the default comparer.
+            </summary>
         </member>
         <member name="T:Microsoft.OData.Client.DataServiceActionQuery`1">
             <summary>
@@ -5375,7 +5591,7 @@
             <param name="hasProperties">true if <paramref name="type"/> has any (declared or inherited) properties; otherwise false.</param>
             <returns>Returns <paramref name="type"/> and its base types, in the order of most base type first and <paramref name="type"/> last.</returns>
         </member>
-        <member name="M:Microsoft.OData.Client.ClientEdmModel.ValidateComplexTypeHasProperties(System.Type,Microsoft.OData.Client.ClientEdmModel.EdmTypeCacheValue)">
+        <member name="M:Microsoft.OData.Client.ClientEdmModel.ValidateComplexType(System.Type,Microsoft.OData.Client.ClientEdmModel.EdmTypeCacheValue)">
             <summary>
             Throw if the given complex type has no properties.
             </summary>
@@ -7571,6 +7787,145 @@
             An <see cref="T:System.Collections.Generic.IEnumerable`1" /> of custom attributes applied to this member, or an array with zero
             elements if no attributes assignable to attributeType have been applied.
             </returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.WeakDictionary`2">
+            <summary>
+            A generic dictionary, which allows its keys to be garbage collected if there are no other references
+            to them than from the dictionary itself.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <remarks>
+            If the key of a particular entry in the dictionary has been collected, then the key becomes
+            effectively unreachable. However, left-over WeakReference objects for the key will physically remain in
+            the dictionary until RemoveCollectedEntries is called.
+            </remarks>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakDictionary`2.dictionary">
+            <summary>
+            Internal Dictionary which actually stores the key and value.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakDictionary`2.comparer">
+            <summary>
+            The comparer used to determine equality of keys for the internal dictionary.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakDictionary`2.intervalForRefresh">
+            <summary>
+            The interval for calling RemoveCollectedEntries to refresh the internal dictionary.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakDictionary`2.countLimitForRefresh">
+            <summary>
+            The count limit for calling RemoveCollectedEntries to refresh the internal dictionary.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.WeakDictionary`2.countForRefresh">
+            <summary>
+            Count on how many entries has been added.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0})">
+            <summary>
+            The constructor with a specified comparer.
+            </summary>
+            <param name="comparer">
+            The IEqualityComparer used to determine equals of object of <typeparamref name="TKey"/>.
+            </param>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.#ctor(System.Collections.Generic.IEqualityComparer{`0},System.Int32)">
+            <summary>
+            The constructor with a specified comparer and a referesh interval.
+            </summary>
+            <param name="comparer">
+            The IEqualityComparer used to determine equals of object of <typeparamref name="TKey"/>.
+            </param>
+            <param name="refreshInterval">
+            The interval for calling RemoveCollectedEntries to refresh the dictionary.
+            </param>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.Add(`0,`1)">
+            <summary>
+            Adds the specified key and value to the dictionary.
+            </summary>
+            <param name="key">The key of the element to add.</param>
+            <param name="value">The value of the element to add.</param>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.ContainsKey(`0)">
+            <summary>
+            Determines whether the dictionary contains the specified key.
+            </summary>
+            <param name="key">The key to locate in the dictionary.</param>
+            <returns>true if the dictionary contains an element with the specified key; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.Remove(`0)">
+            <summary>
+            Removes the value with the specified key from the dictionary.
+            </summary>
+            <param name="key">The key of the element to remove.</param>
+            <returns>true if the element is successfully found and removed; 
+            otherwise, false if key is not found in the dictionary.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.TryGetValue(`0,`1@)">
+            <summary>
+            Gets the value associated with the specified key.
+            </summary>
+            <param name="key">The key of the value to get.</param>
+            <param name="value">When this method returns, contains the value associated with the specified 
+            key, if the key is found; otherwise, the default value for the type of the value parameter.
+            </param>
+            <returns>true if the dictionary contains an element with the specified key; otherwise, false.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Client.WeakDictionary`2.RemoveCollectedEntries">
+            <summary>
+            Removes the left-over weak references for entries in the dictionary whose key has already been
+            reclaimed by the garbage collector. This will reduce the dictionary's Count by the number of 
+            dead key-value pairs that were eliminated.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakDictionary`2.CreateWeakKey">
+            <summary>
+            Defines how the keys are stored in this dictionary.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakDictionary`2.RemoveCollectedEntriesRules">
+            <summary>
+            Get the list of rules that define whether an entry can be removed.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakDictionary`2.Count">
+            <summary>
+            Get the count of entries in this dictionary.
+            </summary>
+            <remarks>
+            The count returned here may include entries for which the key has already been garbage collected.
+            Call RemoveCollectedEntries to weed out collected entries and update the count accordingly.
+            </remarks>        
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakDictionary`2.Item(`0)">
+            <summary>
+            Gets or sets the value associated with the specified key.
+            </summary>
+            <param name="key"> The key of the value to get or set.</param>
+            <returns>The value associated with the specified key.</returns>
+        </member>
+        <member name="T:Microsoft.OData.Client.WeakKeyReference`1">
+            <summary>
+            A weak reference for an object of <typeparamref name="T"/>, which can be used as key in a dictionary.
+            </summary>
+            <typeparam name="T">The type of the keys in the dictionary.</typeparam>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakKeyReference`1.HashCode">
+            <summary>
+            The hash code of the target.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.WeakKeyReference`1.Target">
+            <summary>
+             Gets the object (the target) referenced by the current weak reference object.
+            </summary>
         </member>
         <member name="T:Microsoft.OData.Client.WritingEntityReferenceLinkArgs">
             <summary>
@@ -10302,12 +10657,13 @@
             </summary>
             <param name="requestInfo">The request info.</param>
         </member>
-        <member name="M:Microsoft.OData.Client.ODataMessageWritingHelper.CreateSettings(System.Boolean,System.Boolean)">
+        <member name="M:Microsoft.OData.Client.ODataMessageWritingHelper.CreateSettings(System.Boolean,System.Boolean,System.Boolean)">
             <summary>
             Create message writer settings for producing requests.
             </summary>
             <param name="isBatchPartRequest">if set to <c>true</c> indicates that this is a part of a batch request.</param>
             <param name="enableAtom">Whether to enable ATOM.</param>
+            <param name="odataSimplified">Whether to enable OData Simplified.</param>
             <returns>Newly created message writer settings.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.ODataMessageWritingHelper.CreateWriter(Microsoft.OData.Core.IODataRequestMessage,Microsoft.OData.Core.ODataMessageWriterSettings,System.Boolean)">
@@ -11524,7 +11880,7 @@
             <param name="isBatchPart">True if this args represents a request within a batch, otherwise false.</param>
         </member>
         <member name="P:Microsoft.OData.Client.SendingRequest2EventArgs.RequestMessage">
-            <summary>The web request reported through this event. The handler may modify or replace it.</summary>
+            <summary>The web request reported through this event. The handler may modify it.</summary>
         </member>
         <member name="P:Microsoft.OData.Client.SendingRequest2EventArgs.Descriptor">
             <summary>The request header collection.</summary>
@@ -13487,6 +13843,9 @@
             Static utility class for identifying methods in Queryable, Sequence, and IEnumerable
             and 
             </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.ReflectionUtil.COUNTPROPNAME">
+            <summary>The Collection Count property name</summary>
         </member>
         <member name="M:Microsoft.OData.Client.ReflectionUtil.TryIdentifySequenceMethod(System.Reflection.MethodInfo,Microsoft.OData.Client.SequenceMethod@)">
             <summary>
@@ -21828,11 +22187,18 @@
             </summary>
         </member>
         <member name="P:Microsoft.OData.Client.DataServiceContext.EntityTracker">
-            <summary>Returns the instance of entity tracker which tracks all the entities and links tracked by the context.</summary>
+            <summary>
+            Returns the instance of entity tracker which tracks all the entities and links tracked by the context.
+            </summary>
         </member>
         <member name="P:Microsoft.OData.Client.DataServiceContext.DisableInstanceAnnotationMaterialization">
             <summary>
             Disable instance annotation to be materialized.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Client.DataServiceContext.ODataSimplified">
+            <summary>
+            Whether OData Simplified is enabled.
             </summary>
         </member>
         <member name="P:Microsoft.OData.Client.DataServiceContext.UseDefaultCredentials">
@@ -22201,12 +22567,11 @@
             <param name="wireTypeName">Collection type name read from payload.</param>
             <returns>Collection item type name or null if not a collection.</returns>
         </member>
-        <member name="M:Microsoft.OData.Client.WebUtil.GetBackingTypeForCollectionProperty(System.Type,System.Type)">
+        <member name="M:Microsoft.OData.Client.WebUtil.GetBackingTypeForCollectionProperty(System.Type)">
             <summary>
             Resolves and creates if necessary a backing type for the <paramref name="collectionPropertyType"/>.
             </summary>
             <param name="collectionPropertyType">Type of a collection property as defined by the user - can be just an interface or generic type.</param>
-            <param name="collectionItemType">Type of items stored in the collection.</param>
             <returns>Resolved concrete type that can be instantiated and will back the collection property. Can be the <paramref name="collectionPropertyType"/> type.</returns>
         </member>
         <member name="M:Microsoft.OData.Client.WebUtil.CheckArgumentNull``1(``0,System.String)">
@@ -23856,6 +24221,11 @@
         <member name="F:Microsoft.OData.Client.PlatformHelper.TimeOfDayValidator">
             <summary>
             This pattern eliminates all invalid timeOfDay, the supported format should be "hh:mm:ss.fffffff"
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Client.PlatformHelper.PotentialDateTimeOffsetValidator">
+            <summary>
+            This pattern eliminates whether a text is potentially DateTimeOffset but not others like GUID, digit .etc
             </summary>
         </member>
         <member name="F:Microsoft.OData.Client.PlatformHelper.UriSchemeHttp">

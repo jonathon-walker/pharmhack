@@ -21,7 +21,7 @@
         </member>
         <member name="M:Microsoft.OData.Edm.Csdl.EdmEnumValueParser.IsEnumIntergeType(Microsoft.OData.Edm.IEdmEnumType)">
             <summary>
-            Deterine if the underlying type of the enum type is interger type (byte, sbyte, int16, int32, int64).
+            Determine if the underlying type of the enum type is integer type (byte, sbyte, int16, int32, int64).
             </summary>
             <param name="enumType">The enum type.</param>
             <returns>True if the underlying type of enum type is integer type.</returns>
@@ -2165,7 +2165,7 @@
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.EdmVocabularyAnnotationSerializationLocation">
             <summary>
-            Represents whether a vocabulary annotation should be serialized within the element it applies to or in a seperate section of the CSDL.
+            Represents whether a vocabulary annotation should be serialized within the element it applies to or in a separate section of the CSDL.
             </summary>
         </member>
         <member name="F:Microsoft.OData.Edm.Csdl.EdmVocabularyAnnotationSerializationLocation.Inline">
@@ -2175,7 +2175,7 @@
         </member>
         <member name="F:Microsoft.OData.Edm.Csdl.EdmVocabularyAnnotationSerializationLocation.OutOfLine">
             <summary>
-            The annotation should be serialized in a seperate section.
+            The annotation should be serialized in a separate section.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Csdl.SerializationExtensionMethods">
@@ -2326,7 +2326,7 @@
         </member>
         <member name="M:Microsoft.OData.Edm.Csdl.EdmxReader.#ctor(System.Xml.XmlReader,System.Func{System.Uri,System.Xml.XmlReader})">
             <summary>
-            Construcotr
+            Constructor
             </summary>
             <param name="reader">the XmlReader for current Edm doc</param>
             <param name="getReferencedModelReaderFunc">The function to load referenced model xml. If null, will stop loading the referenced model.</param>
@@ -2483,7 +2483,7 @@
             <param name="model">Model to be written.</param>
             <param name="writer">XmlWriter the generated EDMX will be written to.</param>
             <param name="target">Target implementation of the EDMX being generated.</param>
-            <param name="errors">Errors that prevented successful serialization, or no errors if serialization was successfull. </param>
+            <param name="errors">Errors that prevented successful serialization, or no errors if serialization was successful. </param>
             <returns>A value indicating whether serialization was successful.</returns>
         </member>
         <member name="T:Microsoft.OData.Edm.IEdmEntityReferenceTypeReference">
@@ -3395,7 +3395,7 @@
             Initializes a new instance of the <see cref="T:Microsoft.OData.Edm.Library.EdmContainedEntitySet"/> class.
             </summary>
             <param name="parentNavigationSource">The <see cref="T:Microsoft.OData.Edm.IEdmNavigationSource"/> that container element belongs to</param>
-            <param name="navigationProperty">An <see cref="T:Microsoft.OData.Edm.IEdmNavigationProperty"/> containing the navagation property definition of the contained element</param>
+            <param name="navigationProperty">An <see cref="T:Microsoft.OData.Edm.IEdmNavigationProperty"/> containing the navigation property definition of the contained element</param>
         </member>
         <member name="M:Microsoft.OData.Edm.Library.EdmContainedEntitySet.FindNavigationTarget(Microsoft.OData.Edm.IEdmNavigationProperty)">
             <summary>
@@ -3561,6 +3561,11 @@
         <member name="P:Microsoft.OData.Edm.Library.EdmUnknownEntitySet.Path">
             <summary>
             Gets the path that a navigation property targets. This property is not thread safe.
+            </summary>
+        </member>
+        <member name="P:Microsoft.OData.Edm.Library.EdmUnknownEntitySet.Type">
+            <summary>
+            Gets the type of this navigation source.
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Library.Expressions.EdmNavigationPropertyPathExpression">
@@ -4738,36 +4743,6 @@
         <member name="F:Microsoft.OData.Edm.Vocabularies.V1.CoreVocabularyConstants.VocabularyUrlSuffix">
             <summary>Org.OData.Core.V1.xml file suffix</summary>
         </member>
-        <member name="T:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel">
-            <summary>
-            Representing Alternate Keys Vocabulary Model.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.Instance">
-            <summary>
-            The EDM model with Alternate Keys vocabularies.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.AlternateKeysTerm">
-            <summary>
-            The Alternate Keys term.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.AlternateKeyType">
-            <summary>
-            The AlternateKey ComplexType.
-            </summary>
-        </member>
-        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.PropertyRefType">
-            <summary>
-            The PropertyRef ComplexType.
-            </summary>
-        </member>
-        <member name="M:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.#cctor">
-            <summary>
-            Parse Alternate Keys Vocabulary Model from AlternateKeysVocabularies.xml
-            </summary>
-        </member>
         <member name="T:Microsoft.OData.Edm.Vocabularies.V1.CoreVocabularyModel">
             <summary>
             Representing Core Vocabulary Model.
@@ -4856,6 +4831,36 @@
         <member name="M:Microsoft.OData.Edm.Vocabularies.V1.CoreVocabularyModel.#cctor">
             <summary>
             Parse Core Vocabulary Model from CoreVocabularies.xml
+            </summary>
+        </member>
+        <member name="T:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel">
+            <summary>
+            Representing Alternate Keys Vocabulary Model.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.Instance">
+            <summary>
+            The EDM model with Alternate Keys vocabularies.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.AlternateKeysTerm">
+            <summary>
+            The Alternate Keys term.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.AlternateKeyType">
+            <summary>
+            The AlternateKey ComplexType.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.PropertyRefType">
+            <summary>
+            The PropertyRef ComplexType.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.Vocabularies.Community.V1.AlternateKeysVocabularyModel.#cctor">
+            <summary>
+            Parse Alternate Keys Vocabulary Model from AlternateKeysVocabularies.xml
             </summary>
         </member>
         <member name="T:Microsoft.OData.Edm.Vocabularis.CapabilitiesVocabularyConstants">
@@ -5859,7 +5864,7 @@
             <summary>
             Searches for bound operations based on the qualified name and binding type, returns an empty enumerable if no operation exists.
             </summary>
-            <param name="qualifiedName">The qualifeid name of the operation.</param>
+            <param name="qualifiedName">The qualified name of the operation.</param>
             <param name="bindingType">Type of the binding.</param>
             <returns>
             A set of operations that share the name and binding type or empty enumerable if no such operation exists.
@@ -12375,6 +12380,96 @@
             TimeOfDay value is invalid.
             </summary>
         </member>
+        <member name="T:Microsoft.OData.Edm.TypeCode">
+            <summary>
+            Replacement for TypeCode enum.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Object">
+            <summary>Indicates that no specific TypeCode exists for this type.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Boolean">
+            <summary>Boolean</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Char">
+            <summary>Char</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.SByte">
+            <summary>Signed 8-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Byte">
+            <summary>Unsigned 8-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Int16">
+            <summary>Signed 16-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.UInt16">
+            <summary>Unsigned 16-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Int32">
+            <summary>Signed 32-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.UInt32">
+            <summary>Unsigned 32-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Int64">
+            <summary>Signed 64-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.UInt64">
+            <summary>Unsigned 64-bit integer</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Single">
+            <summary>IEEE 32-bit float</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Double">
+            <summary>IEEE 64-bit double</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.Decimal">
+            <summary>Decimal</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.DateTime">
+            <summary>DateTime</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.TypeCode.String">
+            <summary>Unicode character string</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.IgnoreCase">
+            <summary>Specifies that the case of the member name should not be considered when binding.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.DeclaredOnly">
+            <summary>Specifies that only members declared at the level of the supplied type's hierarchy should be
+             considered. Inherited members are not considered.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.Instance">
+            <summary>Specifies that instance members are to be included in the search.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.Static">
+            <summary>Specifies that static members are to be included in the search.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.Public">
+            <summary>Specifies that public members are to be included in the search.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.NonPublic">
+            <summary>Specifies that non-public members are to be included in the search.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.FlattenHierarchy">
+            <summary>Specifies that public and protected static members up the hierarchy should
+            be returned. Private static members in inherited classes are not returned.
+            Static members include fields, methods, events, and properties. Nested types are not returned.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.ExactBinding">
+            <summary>Specifies that types of the supplied arguments must exactly match the types
+            of the corresponding formal parameters. Reflection throws an exception if
+            the caller supplies a non-null Binder object, since that implies that the
+            caller is supplying BindToXXX implementations that will pick the appropriate method.</summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.BindingFlags.OptionalParamBinding">
+            <summary>Returns the set of members whose parameter count matches the number of supplied
+            arguments. This binding flag is used for methods with parameters that have
+            default values and methods with variable arguments (varargs). This flag should
+            only be used with System.Type.InvokeMember(System.String,System.Reflection.BindingFlags,System.Reflection.Binder,System.Object,System.Object[],System.Reflection.ParameterModifier[],System.Globalization.CultureInfo,System.String[]).
+            </summary>
+        </member>
         <member name="T:Microsoft.OData.Edm.PlatformHelper">
             <summary>
             Helper methods that provide a common API surface on all platforms.
@@ -12395,6 +12490,11 @@
             This pattern eliminates all invalid timeOfDay, the supported format should be "hh:mm:ss.fffffff"
             </summary>
         </member>
+        <member name="F:Microsoft.OData.Edm.PlatformHelper.PotentialDateTimeOffsetValidator">
+            <summary>
+            This pattern eliminates whether a text is potentially DateTimeOffset but not others like GUID, digit .etc
+            </summary>
+        </member>
         <member name="F:Microsoft.OData.Edm.PlatformHelper.UriSchemeHttp">
             <summary>
             Replacement for Uri.UriSchemeHttp, which does not exist on.
@@ -12403,6 +12503,11 @@
         <member name="F:Microsoft.OData.Edm.PlatformHelper.UriSchemeHttps">
             <summary>
             Replacement for Uri.UriSchemeHttps, which does not exist on.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.PlatformHelper.typeCodeMap">
+            <summary>
+            Map of TypeCodes used with GetTypeCode method. Only initialized if that method is called.
             </summary>
         </member>
         <member name="M:Microsoft.OData.Edm.PlatformHelper.GetAssembly(System.Type)">
@@ -12692,6 +12797,196 @@
             <param name="types">Array of type arguments to check against the constructor parameters.</param>
             <returns>True if the constructor takes arguments of the specified types, otherwise false.</returns>
         </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.IsAssignableFrom(System.Type,System.Type)">
+            <summary>
+            Replacement for Type.IsAssignableFrom(Type)
+            </summary>
+            <param name="thisType">Type on which to call this helper method.</param>
+            <param name="otherType">Type to test for assignability.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.IsSubclassOf(System.Type,System.Type)">
+            <summary>
+            Replacement for Type.IsSubclassOf(Type).
+            </summary>
+            <param name="thisType">Type on which to call this helper method.</param>
+            <param name="otherType">Type to test if typeType is a subclass.</param>
+            <returns>True if thisType is a subclass of otherType, otherwise false.</returns>
+            <remarks>
+            TODO: Add this back to TypeInfo. This method will still be needed since it works on Type, but the 
+                  implementation should just be able to call the TypeInfo version directly instead of the full implementation here.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetMethod(System.Type,System.String)">
+            <summary>
+            Replacement for GetMethod(string).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Method to find on the specified type.</param>
+            <returns>MethodInfo if one was found for the specified type, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetMethod(System.Type,System.String,System.Type[])">
+            <summary>
+            Replacement for Type.GetMethod(string, Type[]).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Name of method to find on the specified type.</param>
+            <param name="types">Array of arguments to the method.</param>
+            <returns>MethodInfo if one was found for the specified type, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetMethodWithGenericArgs(System.Type,System.String,System.Boolean,System.Boolean,System.Int32)">
+            <summary>
+            Gets a MethodInfo from the specified type. Replaces uses of Type.GetMember.
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Name of the method to find.</param>
+            <param name="isPublic">True if the method is public, false otherwise.</param>
+            <param name="isStatic">True if the method is static, false otherwise.</param>
+            <param name="genericArgCount">Number of generics arguments the method has.</param>
+            <returns>MethodInfo for the method that was found.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetProperty(System.Type,System.String,System.Type)">
+            <summary>
+            Replacement for Type.GetProperty(string, Type).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Name of public property to find on the specified type.</param>
+            <param name="returnType">Return type for the property.</param>
+            <returns>PropertyInfo if a property was found on the type with the specified name and return type, otherwise null.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetProperty(System.Type,System.String)">
+            <summary>
+            Replacement for Type.GetProperty(string).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Name of public property to find on the specified type.</param>
+            <returns>PropertyInfo if a property was found on the type with the specified name and return type, otherwise null.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetGetMethod(System.Reflection.PropertyInfo)">
+            <summary>
+            Replacement for PropertyInfo.GetGetMethod().
+            </summary>
+            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
+            <returns>MethodInfo for the public get accessor of the specified PropertyInfo, or null if there is no get accessor or it is non-public.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetSetMethod(System.Reflection.PropertyInfo)">
+            <summary>
+            Replacement for PropertyInfo.GetSetMethod().
+            </summary>
+            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
+            <returns>MethodInfo for the public set accessor of the specified PropertyInfo, or null if there is no set accessor or it is non-public.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetBaseDefinition(System.Reflection.MethodInfo)">
+            <summary>
+            Replacement for MethodInfo.GetBaseDefinition().
+            </summary>
+            <param name="methodInfo">MethodInfo on which to call this helper method.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetProperties(System.Type)">
+            <summary>
+            Replacement for Type.GetProperties().
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <returns>Enumerable of all instance and static public properties on the type.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetFields(System.Type)">
+            <summary>
+            Replacement for Type.GetFields(string).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <returns>Enumerable of all public instance fields for the specified type.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetCustomAttributes(System.Type,System.Type,System.Boolean)">
+            <summary>
+            Replacement for Type.GetCustomAttributes(Type, bool).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="attributeType">Attribute type to find on the specified type.</param>
+            <param name="inherit">True if the base types should be searched, false otherwise.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetCustomAttributes(System.Type,System.Boolean)">
+            <summary>
+            Replacement for Type.GetCustomAttributes(bool).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="inherit">True if the base types should be searched, false otherwise.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetGenericArguments(System.Type)">
+            <summary>
+            Replacement for Type.GetGenericArguments().
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <returns>Array of Type objects that represent the type arguments of a generic type or the type parameters of a generic type definition.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetInterfaces(System.Type)">
+            <summary>
+            Replacement for Type.GetInterfaces().
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <returns>See documentation for property being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.IsInstanceOfType(System.Type,System.Object)">
+            <summary>
+            Replacement for Type.IsInstanceOfType(object).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="obj">Object to test to see if it's an instance of the specified type.</param>
+            <returns>See documentation for method being accessed in the body of the method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.Close(System.IO.Stream)">
+            <summary>
+            Replacement for Stream.Close().
+            </summary>
+            <param name="stream">Stream on which to call this helper method.</param>
+            <remarks>
+            Many Close methods have been eliminated on Win8, the recommended pattern is to just use Dispose instead.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetType(System.Reflection.Assembly,System.String,System.Boolean)">
+            <summary>
+            Replacement for Assembly.GetType(string, bool).
+            </summary>
+            <param name="assembly">Assembly on which to call this helper method.</param>
+            <param name="typeName">Name of the type to get from the assembly.</param>
+            <param name="throwOnError">True if an exception should be thrown if the type cannot be found, otherwise false.</param>
+            <returns>Type instance if the type could be found in the assembly, otherwise null.</returns>
+            <remarks>
+            TODO: Add a new method called Assembly.GetDefinedType(string) that returns a TypeInfo and will throw like Assembly.GetType(string, true) used to.
+                  This helper method will still be needed but should be updated to use the new implementation once it exists.
+            </remarks>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetTypes(System.Reflection.Assembly)">
+            <summary>
+            Replacement for Assembly.GetTypes().
+            </summary>
+            <param name="assembly">Assembly on which to call this helper method.</param>
+            <returns>Enumerable of the types in the assembly.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.GetField(System.Type,System.String)">
+            <summary>
+            Replacement for GetField(string).
+            </summary>
+            <param name="type">Type on which to call this helper method.</param>
+            <param name="name">Method to find on the specified type.</param>
+            <returns>FieldInfo if one was found for the specified type, otherwise false.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.IsInstance(System.Reflection.PropertyInfo)">
+            <summary>
+            Checks if the specified PropertyInfo is an instance property.
+            </summary>
+            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
+            <returns>True if either the GetMethod or SetMethod for the property is an instance method.</returns>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.IsPublic(System.Reflection.PropertyInfo)">
+            <summary>
+            Checks if the specified PropertyInfo is a public property.
+            </summary>
+            <param name="propertyInfo">PropertyInfo on which to call this helper method.</param>
+            <returns>True if either the GetMethod or SetMethod for the property is public.</returns>
+        </member>
         <member name="M:Microsoft.OData.Edm.PlatformHelper.CreateCompiled(System.String,System.Text.RegularExpressions.RegexOptions)">
             <summary>
             Creates a Compiled Regex expression
@@ -12700,6 +12995,28 @@
             <param name="options">Options to use.</param>
             <returns>Regex expression to match supplied patter</returns>
             <remarks>Is marked as compiled option only in platforms otherwise RegexOption.None is used</remarks>
+        </member>
+        <member name="T:Microsoft.OData.Edm.PlatformHelper.TypeCodeMap">
+            <summary>
+            Manages the type code mapping used to provide the GetTypeCode functionality.
+            </summary>
+        </member>
+        <member name="F:Microsoft.OData.Edm.PlatformHelper.TypeCodeMap.typeCodes">
+            <summary>
+            Dictionary of types and their type codes.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.TypeCodeMap.#ctor">
+            <summary>
+            Constructor for the map.
+            </summary>
+        </member>
+        <member name="M:Microsoft.OData.Edm.PlatformHelper.TypeCodeMap.GetTypeCode(System.Type)">
+            <summary>
+            Method that does the lookup in the type map, given a type.
+            </summary>
+            <param name="type">Type for which to find the type code.</param>
+            <returns>TypeCode for the specified type if it's in the map, otherwise TypeCode.Object.</returns>
         </member>
         <member name="T:AssemblyRef">
             <summary>
