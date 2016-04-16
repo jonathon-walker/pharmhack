@@ -1,0 +1,61 @@
+since the last order
+    - which med has sold the least
+    - which med has sold the most
+    - which med has the largest upward trend
+    - which med has the largest downward trend
+    - recommended order for the next sales period
+        - look at everything that sold this period
+        - foreach product, ask following questions, If no to any, don't order:
+            - do we have enough stock to sell the same amount as last period?
+            - have other people in our area sold enough to suggest that we will sell out of this stock in the next period
+
+
+/api/ProductHighlights?dateFrom={}&dateTo={}
+Response:   
+{
+    HighestSellingProduct: {
+        Product: {},
+        TotalSales: "",
+        
+    },
+    LowestSellingProduct:  {
+        Product: {},
+        TotalSales: "",   
+    },
+    HighestTrendingProduct: {
+        Product: {},
+        SalesOverTime: [{
+            Period: "",
+            TotalSales: ""
+        }]
+    },
+    LowestTrendingProduct: {
+        Product: {},
+        SalesOverTime: [{
+            Period: "",
+            TotalSales: ""
+        }]
+    }
+}
+
+/api/RecommendedOrders?dateFrom={}&dateTo={}
+Response:
+{
+    RecommendedOrders: [{
+        ProductName: "",
+        Sku: "",
+        Quantity: "",
+        UnitCost: ""
+    }]
+}
+
+Product: {
+    Name: "",
+    Sku: "",
+    Description: "",
+    UnitCost: ""
+}
+
+
+
+
