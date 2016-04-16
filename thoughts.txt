@@ -1,4 +1,4 @@
-since the last order
+Since the last order:
     - which med has sold the least
     - which med has sold the most
     - which med has the largest upward trend
