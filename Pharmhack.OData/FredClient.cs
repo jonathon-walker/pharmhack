@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-// Generation date: 16/04/2016 3:29:34 PM
+// Generation date: 16/04/2016 7:09:51 PM
 namespace Pharmhack.OData.FredNXT.Web.Model
 {
     /// <summary>
