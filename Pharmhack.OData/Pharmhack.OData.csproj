@@ -58,6 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ExpressionExtensions.cs" />
+    <Compile Include="Extensions\QueryExtensions.cs" />
     <Compile Include="Fred.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
