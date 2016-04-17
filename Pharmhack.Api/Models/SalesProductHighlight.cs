@@ -9,6 +9,6 @@ namespace Pharmhack.Api.Penises
     public class SalesProductHighlight
     {
         public Product Product { get; set; }
-        public int TotalSale { get; set; }
+        public int TotalSales { get; set; }
     }
 }

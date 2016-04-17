@@ -5,7 +5,7 @@ using Pharmhack.Api.Models;
 using Pharmhack.OData;
 using Pharmhack.OData.FredNXT.Web.Model;
 
-namespace Pharmhack.Api.Controllers
+namespace Pharmhack.Api.Penises
 {
 	public class RecommendedOrdersController : ApiController
 	{
