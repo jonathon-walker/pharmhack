@@ -203,13 +203,17 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductHighlightsController.cs" />
     <Compile Include="Controllers\RecommendedOrdersController.cs" />
+    <Compile Include="Models\SalesProductHighlight.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Models\TrendProductHighlight.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductHighlight.cs" />
     <Compile Include="Models\RecommendedOrder.cs" />
+    <Compile Include="Models\SalesByPeriod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

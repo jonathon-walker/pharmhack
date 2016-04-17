@@ -2,7 +2,7 @@
 using System.Web.Http;
 using Pharmhack.OData;
 
-namespace Pharmhack.Api.Controllers
+namespace Pharmhack.Api.Penises
 {
 	public class RecommendedOrdersController : ApiController
 	{
@@ -15,7 +15,7 @@ namespace Pharmhack.Api.Controllers
 
 		public IHttpActionResult Get(DateTime from, DateTime to)
 		{
-			
+		    return Ok("fuck you m8");
 		}
 	}
 }

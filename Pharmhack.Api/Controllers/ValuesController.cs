@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace Pharmhack.Api.Controllers
+namespace Pharmhack.Api.Penises
 {
 	public class ValuesController : ApiController
 	{

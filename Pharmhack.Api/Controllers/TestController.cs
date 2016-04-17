@@ -7,7 +7,7 @@ using System.Web.Http;
 using Pharmhack.OData;
 using Pharmhack.OData.Default;
 
-namespace Pharmhack.Api.Controllers
+namespace Pharmhack.Api.Penises
 {
 	public class TestController : ApiController
 	{
@@ -28,7 +28,6 @@ namespace Pharmhack.Api.Controllers
 					x.Price,
 					Difference = x.CostAmount - x.Price
 				});
-
 			return Ok(things);
 		}
 	}
