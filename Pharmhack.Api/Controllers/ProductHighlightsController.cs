@@ -4,35 +4,40 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using Pharmhack.Api.Models;
 using Pharmhack.OData;
 
-namespace Pharmhack.Api.Penises
+namespace Pharmhack.Api.Controllers
 {
 	public class ProductHighlightsController : ApiController
 	{
 		readonly FredClient fred;
 
-        public ProductHighlightsController(FredClient fred)
+		public ProductHighlightsController(FredClient fred)
 		{
 			this.fred = fred;
 		}
 
-        public IHttpActionResult Get(DateTime from, DateTime to)
-        {
-            var salesInPeriod = fred.RetailTransactionSalesTrans.Where(x => x.CostAmount > 0)
-                                    .GroupBy(x => x.Barcode)
-                                    .Select(g => new {g.Key, Count = g.Count()})
-                                    .OrderBy(f => f.Count);
+		public IHttpActionResult Get(DateTime dateFrom, DateTime dateTo)
+		{
+			var orderPeriodDuration = dateTo - dateFrom;
+			var lastPeriodFrom = dateFrom - orderPeriodDuration;
+			var lastPeriodTo = dateFrom;
 
-            salesInPeriod.First();
-            //var highestSales = new SalesProductHighlight {Product = '3'};
+			var previousPeriodFrom = lastPeriodFrom - orderPeriodDuration;
+			var previousPeriodTo = lastPeriodTo - orderPeriodDuration;
 
-		    var result = new ProductHighlight()
-		        {
-		        };
+			var salesforLastTwoPeriods = fred.RetailTransactionSalesTrans
+				.WhereBetweenDates(x => x.CreatedDateTime, previousPeriodFrom, lastPeriodTo)
+				.Select(x => new
+				{
+					x.ItemId,
+					x.CreatedDateTime,
+					x.CostAmount,
+					x.Price
+				})
+				.ToArray();
 
-			return Ok(result);
+			return Ok();
 		}
 	}
 }
