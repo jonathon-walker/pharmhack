@@ -22,6 +22,17 @@ namespace Pharmhack.OData
 					a.Parameters);
 		}
 
+		public static Expression<Func<T1, bool>> In<T1, T2>(this Expression<Func<T1, T2>> member, params T2[] values)
+		{
+			var prop = member.Body as MemberExpression;
+			if (prop == null)
+				throw new Exception("Expression has to be member");
+			if (values.Length == 0)
+				return _ => true;
+			var body = values.Select(v => Expression.Equal(prop, Expression.Constant(v))).Aggregate(Expression.OrElse);
+			return Expression.Lambda<Func<T1, bool>>(body, member.Parameters[0]);
+		}
+
 		/// <summary>
 		/// http://stackoverflow.com/questions/19433316/combine-two-linq-lambda-expressions
 		/// </summary>
